@@ -2,9 +2,9 @@ MyCat1::Application.routes.draw do
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
   get '/contacts', to: 'static_pages#contacts'
-  get 'users/new'
   get '/signup', to: 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
+  resources :users
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
