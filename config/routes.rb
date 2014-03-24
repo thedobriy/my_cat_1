@@ -1,14 +1,18 @@
 MyCat1::Application.routes.draw do
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  root 'static_pages#home'
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
   get '/contacts', to: 'static_pages#contacts'
   get '/signup', to: 'users#new'
+  get '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  # delete '/signout', to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
-  resources :users
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
