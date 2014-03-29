@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326185305) do
+ActiveRecord::Schema.define(version: 20140328145133) do
+
+  create_table "doctors", force: true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.string   "contacts"
+    t.integer  "company_id"
+    t.integer  "speciality_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "doctors", ["name", "company_id", "speciality_id"], name: "index_doctors_on_name_and_company_id_and_speciality_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

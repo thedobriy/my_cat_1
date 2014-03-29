@@ -2,6 +2,10 @@
 
 /* mixins, variables, etc. */
 
+//navbar
+$navbar-inverse-bg: #006600;
+$navbar-inverse-border: #006600;
+
 $grayMediumLight: #eaeaea;
 
 /* universal */
@@ -12,6 +16,15 @@ html {
 
 body {
   padding-top: 60px;
+  
+  // Inverse navbar
+
+.navbar-inverse .navbar-inner{
+background-color: $navbar-inverse-bg;
+border-color: $navbar-inverse-border;
+background-image: none;
+}
+
 }
 
 section {
@@ -74,6 +87,7 @@ p {
     text-decoration: none;
   }
 }
+
 
 /* footer */
 

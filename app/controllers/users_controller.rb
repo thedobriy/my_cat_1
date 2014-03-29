@@ -12,7 +12,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if signed_in?
+      redirect_to(root_url)
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -39,9 +43,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User TERMINATED"
-    redirect_to users_url
+    @user = User.find(params[:id])
+    if current_user != @user
+      User.find(params[:id]).destroy
+      flash[:success] = "User TERMINATED"
+      redirect_to users_url
+    else
+      flash[:error] = "Please don't remove yourself"
+      redirect_to users_url
+    end
   end
 
   private

@@ -1,0 +1,12 @@
+<% provide(:title, "Редактирование врача") %>
+<h1>Редактирование врача</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@doctor) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Сохранить изменения", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

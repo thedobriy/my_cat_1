@@ -1,6 +1,8 @@
 MyCat1::Application.routes.draw do
+  get "doctors/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :doctors
   root 'static_pages#home'
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
