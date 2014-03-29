@@ -1,4 +1,4 @@
 class Doctor < ActiveRecord::Base
-  before_save { self.name = name.capitalize }
+  belongs_to :company
   validates :name, presence: true, length: { maximum: 60 }
 end

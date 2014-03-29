@@ -1,2 +1,14 @@
-<p><%= @doctor.name %>
-<p><%= @doctor.desc %>
+<% provide(:title, @doctor.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @doctor.name %>
+      </h1>
+      <p><%= @doctor.desc %>
+      <p><%= link_to @doctor.company.name, @doctor.company %>
+
+    </section>
+  </aside>
+</div>
+

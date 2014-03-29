@@ -1,6 +1,15 @@
-<h1><%= @company.name %></h1>
-<p>Описание: <%= @company.desc %>
-<p>Адрес: <%= @company.adress%>
-<p>Контакты: <%= @company.contacts %>
-<p>Тип компании: <%= @company.type_company_id %>
-<p>Глав врач: <%= @company.main_doctor_id %>
+<% provide(:title, @company.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+        <h1><%= @company.name %></h1>
+        <p>Описание: <%= @company.desc %>
+        <p>Адрес: <%= @company.adress%>
+        <p>Контакты: <%= @company.contacts %>
+        <p>Тип компании: <%= @company.type_company_id %>
+        <p>Глав врач: <%= link_to @company.doctor.name, @company.doctor %>
+        <p>Врачи:
+        <%= render partial: "list", collection: @company.doctors, as: :doctor %>
+    </section>
+  </aside>
+</div>
