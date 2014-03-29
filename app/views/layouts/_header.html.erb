@@ -11,10 +11,18 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "List doctors", doctors_path %></li>
-                <li><%= link_to "Add doctor", doctors_new_path %></li>
+                <li><%= link_to "Add doctor", new_doctor_path %></li>
               </ul>
-            </li>
-
+          </li>
+          <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Companies <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Companies list", companies_path %></li>
+                <li><%= link_to "Add company", new_company_path %></li>
+              </ul>
+          </li>
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
