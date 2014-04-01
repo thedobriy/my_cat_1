@@ -6,8 +6,9 @@
         <%= @doctor.name %>
       </h1>
       <p><%= @doctor.desc %>
+      <% if @doctor.company %>
       <p><%= link_to @doctor.company.name, @doctor.company %>
-
+      <% end %>
     </section>
   </aside>
 </div>
