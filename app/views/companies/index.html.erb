@@ -1,6 +1,6 @@
 <% provide(:title, 'All companies') %>
 <h1>All companies</h1>
-
+<div class="add-new-item"><%= link_to 'Добавить больницу', new_company_path %></div>
 <%= will_paginate %>
 <ul>
   <% @companies.each do |company| %>

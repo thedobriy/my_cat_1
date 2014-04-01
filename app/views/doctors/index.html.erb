@@ -1,6 +1,9 @@
 <% provide(:title, 'All doctors') %>
 <h1>All doctors</h1>
-
+<div class="add-new-item">
+  <span class="glyphicon glyphicon-plus"></span> 
+  <%= link_to 'Добавить врача', new_doctor_path %>
+</div>
 <%= will_paginate %>
 
 <ul class="doctors">

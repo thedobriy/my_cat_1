@@ -1,7 +1,5 @@
 <% provide(:title, @company.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
         <h1><%= @company.name %></h1>
         <p>Описание: <%= @company.desc %>
         <p>Адрес: <%= @company.adress%>
@@ -15,6 +13,4 @@
           <p>Врачи:
           <%= render partial: "list", collection: @company.doctors, as: :doctor %>
         <% end %>
-    </section>
-  </aside>
 </div>

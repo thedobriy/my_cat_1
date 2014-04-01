@@ -3,7 +3,7 @@
 /* mixins, variables, etc. */
 
 //navbar
-$navbar-inverse-bg: #006600;
+$navbar-inverse-bg: #007700;
 $navbar-inverse-border: #006600;
 
 $grayMediumLight: #eaeaea;
@@ -24,7 +24,10 @@ background-color: $navbar-inverse-bg;
 border-color: $navbar-inverse-border;
 background-image: none;
 }
+}
 
+.navbar-inverse .nav > li > a{
+  color: #eeeeee;
 }
 
 section {
@@ -116,7 +119,6 @@ footer {
 }
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -198,4 +200,8 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+/* ====  My css ===   */
+.add-new-item {
+text-align: right
 }

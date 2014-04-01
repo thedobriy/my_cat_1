@@ -1,7 +1,5 @@
 <% provide(:title, @doctor.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
       <h1>
         <%= @doctor.name %>
       </h1>
@@ -9,7 +7,5 @@
       <% if @doctor.company %>
       <p><%= link_to @doctor.company.name, @doctor.company %>
       <% end %>
-    </section>
-  </aside>
 </div>
 
