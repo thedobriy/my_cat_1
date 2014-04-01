@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @doctors = Doctor.paginate(page: params[:page])
+    @doctors = Doctor.paginate(page: params[:page], :per_page => 10).order('name ASC')
   end
 
   def new

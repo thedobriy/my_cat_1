@@ -7,9 +7,14 @@
         <p>Адрес: <%= @company.adress%>
         <p>Контакты: <%= @company.contacts %>
         <p>Тип компании: <%= @company.type_company_id %>
-        <p>Глав врач: <%= link_to @company.doctor.name, @company.doctor %>
-        <p>Врачи:
-        <%= render partial: "list", collection: @company.doctors, as: :doctor %>
+        <% if @company.main_doctor %>
+          <p>Глав врач: <%= link_to @company.main_doctor.name, 
+            @company.main_doctor %>
+        <% end %>
+        <% if !@company.doctors.empty? %>
+          <p>Врачи:
+          <%= render partial: "list", collection: @company.doctors, as: :doctor %>
+        <% end %>
     </section>
   </aside>
 </div>

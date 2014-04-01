@@ -1,3 +1,7 @@
+<% provide(:title, 'All companies') %>
+<h1>All companies</h1>
+
+<%= will_paginate %>
 <ul>
   <% @companies.each do |company| %>
     <li><%= link_to company.name, company %>
@@ -6,3 +10,4 @@
      data: { confirm: "Are you sure?" } %>
   <% end %>
 </ul>
+<%= will_paginate %>
