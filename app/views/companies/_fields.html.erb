@@ -9,8 +9,8 @@
   <%= f.label :desc %>
   <%= f.text_field :desc %>
 
-  <%= f.label :main_doctor_id %>
-  <%= f.text_field :main_doctor_id %>
+  <%= f.label "Глав врач:"  %>
+  <%= collection_select(:company, :main_doctor_id, Doctor.order('name ASC'), :id, :name) %>
 
   <%= f.label :type_company_id %>
   <%= f.text_field :type_company_id %>
