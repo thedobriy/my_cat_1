@@ -9,8 +9,13 @@
   <%= f.label :desc %>
   <%= f.text_field :desc %>
 
+  <%= f.label "City:"  %>
+  <%= collection_select(:company, :city_id, 
+                        City.order('pop DESC'), :id, :name) %>
+
   <%= f.label "Глав врач:"  %>
-  <%= collection_select(:company, :main_doctor_id, Doctor.order('name ASC'), :id, :name) %>
+  <%= collection_select(:company, :main_doctor_id, 
+                        Doctor.order('name ASC'), :id, :name) %>
 
   <%= f.label :type_company_id %>
   <%= f.text_field :type_company_id %>

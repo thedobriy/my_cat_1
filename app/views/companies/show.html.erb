@@ -1,10 +1,12 @@
 <% provide(:title, @company.name) %>
 <div class="row">
         <h1><%= @company.name %></h1>
+     <%= link_to 'Edit', edit_company_path %>
         <p>Описание: <%= @company.desc %>
         <p>Адрес: <%= @company.adress%>
         <p>Контакты: <%= @company.contacts %>
         <p>Тип компании: <%= @company.type_company_id %>
+        <p>City: <%= @company.city.name %>
         <% if @company.main_doctor %>
           <p>Глав врач: <%= link_to @company.main_doctor.name, 
             @company.main_doctor %>

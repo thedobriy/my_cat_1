@@ -1,10 +1,17 @@
 class CompaniesController < ApplicationController
   before_action :find_company, only: [:show, :edit, :update]
+  before_action :get_cities,   only: [:index, :sort_by_city]
 
   def index
-    @companies = Company.paginate(page: params[:page])
+    @companies = Company.paginate(page: params[:page]).per_page(10)
+    # @companies = @companies.kolvo(params[:sort_by_city]) if params[:sort_by_city]
   end
-  
+
+  def sort_by_city
+    @companies = Company.where("city_id = ?", params[:city_id]).paginate(page: params[:page]).per_page(10)
+    render 'index'
+  end
+
   def new
     @company = Company.new
   end
@@ -43,10 +50,14 @@ class CompaniesController < ApplicationController
   private
     def company_params
       params.require(:company).permit(:name, :desc, :adress, :contacts, 
-                               :main_doctor_id, :type_company_id)
+                               :main_doctor_id, :type_company_id, :city_id)
     end
 
     def find_company
       @company = Company.find(params[:id])
+    end
+
+    def get_cities
+      @cities = City.joins(:company).order('companies_count DESC').uniq
     end
 end

@@ -3,6 +3,11 @@ MyCat1::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :doctors
   resources :companies
+  get '/companies/city/:city_id', to: 'companies#sort_by_city', as: 'companies_city_sort'
+  # resources :companies do
+  #   get :sort_by_city, on: :collection
+  # end
+  # get 'companies/:sort_by_city', to 'companies#sort_by_city'
   root 'static_pages#home'
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'

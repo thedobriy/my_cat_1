@@ -4,42 +4,42 @@
       <%= link_to "врачи украины", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Главная", root_path %></li>
           <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Doctors <b class="caret"></b>
+                Врачи <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "List doctors", doctors_path %></li>
-                <li><%= link_to "Add doctor", new_doctor_path %></li>
+                <li><%= link_to "Все врачи", doctors_path %></li>
+                <li><%= link_to "Добавить врача", new_doctor_path %></li>
               </ul>
           </li>
           <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Companies <b class="caret"></b>
+                Больницы <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Companies list", companies_path %></li>
-                <li><%= link_to "Add company", new_company_path %></li>
+                <li><%= link_to "Все больницы", companies_path %></li>
+                <li><%= link_to "Добавить больницу", new_company_path %></li>
               </ul>
           </li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Пользователи", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                Мой кабинет <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to "Профиль", current_user %></li>
+                <li><%= link_to "Найтройки", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  <%= link_to "Выйти", signout_path, method: "delete" %>
                 </li>
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "Вход", signin_path %></li>
           <% end %>
         </ul>
       </nav>
