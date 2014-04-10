@@ -8,8 +8,11 @@
       <%= f.label :contacts  %>
       <%= f.text_field :contacts %>
 
+      <%= f.label "City:"  %>
+      <%= collection_select(:doctor, :city_id, City.all, :id, :name) %>
+
+      <%= f.label "Speciality:"  %>
+      <%= collection_select(:doctor, :speciality_id, Speciality.all, :id, :name) %>
+
       <%= f.label "Место работы:"  %>
       <%= collection_select(:doctor, :company_id, Company.all, :id, :name) %>
-
-      <%= f.label :speciality_id %>
-      <%= f.text_field :speciality_id %>

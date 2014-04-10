@@ -1,8 +1,33 @@
 class DoctorsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :get_all_specs, 
+    only: [:index, :sort_by_both, :sort_by_speciality]
+  before_action :get_all_cities,
+    only: [:index, :sort_by_both, :sort_by_city]
 
   def index
-    @doctors = Doctor.paginate(page: params[:page], :per_page => 10).order('name ASC')
+    @doctors = Doctor.paginate(page: params[:page], :per_page => 10)
+  end
+
+  def sort_by_city
+    @doctors = Doctor.where('city_id = ?', params[:city_id]).
+      paginate(page: params[:page], :per_page =>10)
+    get_specs
+    render 'index'
+  end
+
+  def sort_by_speciality
+    @doctors = Doctor.where('speciality_id = ?', params[:speciality_id]).
+      paginate(page: params[:page], :per_page =>10)
+    get_cities
+    render 'index'
+  end
+
+  def sort_by_both
+    @doctors = Doctor.where('speciality_id = ? AND city_id = ?', 
+                            params[:speciality_id], params[:city_id]).
+      paginate(page: params[:page], :per_page =>10)
+    render 'index'
   end
 
   def new
@@ -44,7 +69,7 @@ class DoctorsController < ApplicationController
   private
 
     def doctor_params
-      params.require(:doctor).permit(:name, :desc, :company_id, 
+      params.require(:doctor).permit(:name, :desc, :company_id, :city_id, 
                                      :speciality_id, :contacts)
     end
 
@@ -53,4 +78,21 @@ class DoctorsController < ApplicationController
     #  redirect_to(root_url) unless current_user?(@user)
     end
 
+    def get_all_cities
+      @cities = City.joins(:doctor).order('doctors_count DESC').uniq
+    end
+
+    def get_all_specs
+      @specialities = Speciality.joins(:doctor).order('doctors_count DESC').uniq
+    end
+    
+    def get_specs
+      @specialities = Speciality.joins(:doctor).
+        where(doctors: {city_id: params[:city_id]}).uniq
+    end
+
+    def get_cities
+      @cities = City.joins(:doctor).
+        where(doctors: {speciality_id: params[:speciality_id]}).uniq
+    end
 end

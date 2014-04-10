@@ -3,7 +3,14 @@ MyCat1::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :doctors
   resources :companies
-  get '/companies/city/:city_id', to: 'companies#sort_by_city', as: 'companies_city_sort'
+  get '/companies/city/:city_id', 
+    to: 'companies#sort_by_city', as: 'companies_city_sort'
+  get '/doctors/city/:city_id', 
+    to: 'doctors#sort_by_city', as: 'doctors_city_sort'
+  get '/doctors/speciality/:speciality_id', 
+    to: 'doctors#sort_by_speciality', as: 'doctors_speciality_sort'
+  get '/doctors/city/:city_id/speciality/:speciality_id', 
+    to: 'doctors#sort_by_both', as: 'doctors_both_sort'
   # resources :companies do
   #   get :sort_by_city, on: :collection
   # end

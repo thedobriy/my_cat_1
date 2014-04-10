@@ -4,8 +4,11 @@
         <%= @doctor.name %>
       </h1>
       <p><%= @doctor.desc %>
+      <% if @doctor.speciality %>
+        <p>Speciality: <%= @doctor.speciality.name %>
+      <% end %>
       <% if @doctor.company %>
-      <p><%= link_to @doctor.company.name, @doctor.company %>
+        <p>Company: <%= link_to @doctor.company.name, @doctor.company %>
       <% end %>
 </div>
 

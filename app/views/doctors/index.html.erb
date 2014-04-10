@@ -4,10 +4,26 @@
   <span class="glyphicon glyphicon-plus"></span> 
   <%= link_to 'Добавить врача', new_doctor_path %>
 </div>
-<%= will_paginate %>
-
-<ul class="doctors">
+<%= link_to 'Все города', doctors_path %> 
+<% @cities.each do |city| %>
+  | <%= link_to city.name, doctors_city_sort_path(city.id) %>
+(<%= city.doctors_count %>) 
+<% end %>
+<p>
+<table><tr>
+  <td valign="top">
+    <%= link_to 'Все specialities', doctors_path %> 
+    <% @specialities.each do |speciality| %>
+      <li><%= link_to speciality.name, doctors_speciality_sort_path(speciality.id) %>
+                  (<%= speciality.doctors_count %>)
+    <% end %>
+  </td>
+  <td>
+    <%= will_paginate %>
+    <ul class="doctors">
     <%= render @doctors %>
-</ul>
+    </ul>
+    <%= will_paginate %>
+  </td>
+</tr></table>
 
-<%= will_paginate %>
