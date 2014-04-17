@@ -1,5 +1,4 @@
 @import "bootstrap";
-
 /* mixins, variables, etc. */
 
 //navbar
@@ -205,4 +204,15 @@ input {
 /* ====  My css ===   */
 .add-new-item {
 text-align: right
+}
+.badge {
+  padding: 1px 9px 2px;
+  font-size: 12.025px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: #007700;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
 }
