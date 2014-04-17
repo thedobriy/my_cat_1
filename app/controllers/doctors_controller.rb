@@ -16,7 +16,7 @@ class DoctorsController < ApplicationController
       paginate(page: params[:page], :per_page =>10)
     get_specs
     @city = City.find(params[:city_id])
-    add_breadcrumb "City", doctors_city_sort_url(params[:city_id])
+    add_breadcrumb "#{@city.name}", "#{@city.id}"
     render 'index'
   end
 
@@ -50,6 +50,9 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @city = City.find(@doctor.city_id)
+    add_breadcrumb "#{@city.name}", "city/#{@city.id}"
+    add_breadcrumb "#{@doctor.name}"
   end
 
   def edit

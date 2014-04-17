@@ -8,6 +8,7 @@
 <% end %>
 <p>
 <%= will_paginate %>
+<p><%= render_breadcrumbs %></p>
 <ul>
   <% @companies.each do |company| %>
     <li><%= link_to company.name, company %>

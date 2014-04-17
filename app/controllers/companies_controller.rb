@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   before_action :find_company, only: [:show, :edit, :update]
   before_action :get_cities,   only: [:index, :sort_by_city]
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "All companies", :companies_path
 
   def index
     @companies = Company.paginate(page: params[:page]).per_page(10)
@@ -9,6 +11,8 @@ class CompaniesController < ApplicationController
 
   def sort_by_city
     @companies = Company.where("city_id = ?", params[:city_id]).paginate(page: params[:page]).per_page(10)
+    @city = City.find(params[:city_id])
+    add_breadcrumb "#{@city.name}", "#{@city.id}"
     render 'index'
   end
 
@@ -27,6 +31,9 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @city = City.find(@company.city_id)
+    add_breadcrumb "#{@city.name}", "city/#{@city.id}"
+    add_breadcrumb "#{@company.name}"
   end
 
   def edit
