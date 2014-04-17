@@ -1,0 +1,17 @@
+    <div class="list-group">
+      <a href="<%= doctors_path %>" class="list-group-item active">Все города</a>
+          <% @cities.each do |city| %>
+           <a href="<%= doctors_city_sort_path(city.id) %>" class="list-group-item">
+            <span class="badge"><%= city.doctors_count %></span><%= city.name %></a>
+            <% end %>
+          </div>
+
+        <div class="list-group">
+          <a href="<%= doctors_path %>" class="list-group-item active">Все specialities</a>
+          <% @specialities.each do |speciality| %>
+           <a href="<%= doctors_speciality_sort_path(speciality.id) %>" class="list-group-item">
+            <span class="badge"><%= speciality.doctors_count %></span>
+ <%= speciality.name %></a>
+            <% end %>
+        </div>
+

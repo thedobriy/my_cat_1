@@ -1,14 +1,17 @@
 <% provide(:title, 'All companies') %>
 <h1>All companies</h1>
-<div class="add-new-item"><%= link_to 'Добавить больницу', new_company_path %></div>
+<div class="add-new-item">
+      <span class="glyphicon glyphicon-plus"></span> 
+  <%= link_to 'Добавить больницу', new_company_path %>
+</div>
 <%= link_to 'Все города', companies_path %> 
 <% @cities.each do |city| %>
   | <%= link_to city.name, companies_city_sort_path(city.id) %>
 (<%= city.companies_count %>) 
 <% end %>
 <p>
-<%= will_paginate %>
-<p><%= render_breadcrumbs %></p>
+    <ol class="breadcrumb"><%= render_breadcrumbs %></ol>
+    <%= will_paginate @companies, renderer: BootstrapPagination::Rails %>
 <ul>
   <% @companies.each do |company| %>
     <li><%= link_to company.name, company %>
@@ -17,4 +20,4 @@
      data: { confirm: "Are you sure?" } %>
   <% end %>
 </ul>
-<%= will_paginate %>
+    <%= will_paginate @companies, renderer: BootstrapPagination::Rails %>

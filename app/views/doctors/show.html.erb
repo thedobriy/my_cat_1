@@ -1,9 +1,15 @@
 <% provide(:title, @doctor.name) %>
-<ol class="breadcrumb"><%= render_breadcrumbs %></ol>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= @doctor.name %></h3>
-    </div>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= render "leftside" %>
+      </div>
+      <div class="col-md-9">
+        <ol class="breadcrumb"><%= render_breadcrumbs %></ol>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @doctor.name %></h3>
+      </div>
     <div class="panel-body">
       <%= @doctor.desc %>
       <% if @doctor.speciality %>
@@ -14,4 +20,6 @@
       <% end %>
     </div>
   </div>
+</div>
+</div>
 

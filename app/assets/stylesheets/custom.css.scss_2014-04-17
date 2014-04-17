@@ -1,35 +1,13 @@
-$navbar-inverse-bg: #007700;
-$navbar-inverse-border: #006600;
-
-$navbar-inverse-link-active-bg: #165916;
-
 $component-active-bg: #007700;
 $list-group-active-bg: #007700;
 @import "bootstrap";
-    //-------------------------------------------------------------------------------
-    //   Pagination fix for will_paginate and bootstrap
-    //-------------------------------------------------------------------------------
-
-    .pagination {
-      span.disabled {
-        color: #aaa !important;
-      }
-      em.current {
-        float: left;
-        padding: 0 14px;
-        line-height: 38px;
-        text-decoration: none;
-        background-color: white;
-        border: 1px solid #DDD;
-        border-left-width: 0;
-      }
-      .previous_page {
-        border-left: 1px solid #ddd;
-      }
-    }
 /* mixins, variables, etc. */
 
+$component-active-bg: #007700;
+$list-group-active-bg: #007700;
 //navbar
+$navbar-inverse-bg: #007700;
+$navbar-inverse-border: #006600;
 
 $grayLight: #999;
 $grayDarker: #333;
@@ -46,6 +24,11 @@ body {
   
   // Inverse navbar
 
+.navbar-inverse .navbar-inner{
+background-color: $navbar-inverse-bg;
+border-color: $navbar-inverse-border;
+background-image: none;
+}
 }
 
 .navbar-inverse .nav > li > a{
@@ -104,7 +87,7 @@ p {
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 14px;
+  padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {

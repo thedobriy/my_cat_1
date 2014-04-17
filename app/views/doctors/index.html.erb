@@ -1,35 +1,20 @@
 <% provide(:title, 'All doctors') %>
 <div class="row">
   <div class="col-md-3">
-    <div class="list-group">
-      <a href="<%= doctors_path %>" class="list-group-item active">Все города</a>
-          <% @cities.each do |city| %>
-           <a href="<%= doctors_city_sort_path(city.id) %>" class="list-group-item">
-            <span class="badge"><%= city.doctors_count %></span><%= city.name %></a>
-            <% end %>
-          </div>
-
-        <div class="list-group">
-          <a href="<%= doctors_path %>" class="list-group-item active">Все specialities</a>
-          <% @specialities.each do |speciality| %>
-           <a href="<%= doctors_speciality_sort_path(speciality.id) %>" class="list-group-item">
-            <span class="badge"><%= speciality.doctors_count %></span>
- <%= speciality.name %></a>
-            <% end %>
-        </div>
+    <%= render "leftside" %>
       </div>
   <div class="col-md-9">
-    <h1>All doctors</h1>
+    <h1>Врачи Украины</h1>
     <div class="add-new-item">
       <span class="glyphicon glyphicon-plus"></span> 
       <%= link_to 'Добавить врача', new_doctor_path %>
     </div>
     <ol class="breadcrumb"><%= render_breadcrumbs %></ol>
-    <%= will_paginate %>
+    <%= will_paginate @doctors, renderer: BootstrapPagination::Rails %>
     <ul class="doctors">
     <%= render @doctors %>
     </ul>
-    <%= will_paginate %>
+    <%= will_paginate @doctors, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
 

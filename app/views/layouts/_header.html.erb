@@ -1,29 +1,32 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
+<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
       <%= link_to "врачи украины", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Главная", root_path %></li>
-          <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Врачи <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Все врачи", doctors_path %></li>
-                <li><%= link_to "Добавить врача", new_doctor_path %></li>
-              </ul>
-          </li>
-          <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Больницы <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Все больницы", companies_path %></li>
-                <li><%= link_to "Добавить больницу", new_company_path %></li>
-              </ul>
-          </li>
-          <% if signed_in? %>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Главная", root_path %></li>
+        <li class="dropdown">
+          <%= link_to companies_path, class: "dropdown-toggle",
+            data: { toggle: "dropdown" } do %>
+            Больницы <b class="caret"></b>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Все больницы", companies_path %></li>
+            <li><%= link_to "Добавить больницу", new_company_path %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <%= link_to doctors_path, class: "dropdown-toggle",
+            data: { toggle: "dropdown" } do %>
+            Врачи <b class="caret"></b>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Все врачи", doctors_path %></li>
+            <li><%= link_to "Добавить врача", new_doctor_path %></li>
+          </ul>
+        </li>  
+         <% if signed_in? %>
             <li><%= link_to "Пользователи", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -41,8 +44,9 @@
           <% else %>
             <li><%= link_to "Вход", signin_path %></li>
           <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </header>
+

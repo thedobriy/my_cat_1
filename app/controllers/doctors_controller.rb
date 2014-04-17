@@ -1,14 +1,14 @@
 class DoctorsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :get_all_specs, 
-    only: [:index, :sort_by_both, :sort_by_speciality]
+    only: [:index, :sort_by_both, :sort_by_speciality, :show, :new, :edit]
   before_action :get_all_cities,
-    only: [:index, :sort_by_both, :sort_by_city]
-  add_breadcrumb "Home", :root_path
-  add_breadcrumb "All doctors", :doctors_path
+    only: [:index, :sort_by_both, :sort_by_city, :show, :new, :edit]
+  add_breadcrumb "Главная", :root_path
+  add_breadcrumb "Все врачи", :doctors_path
 
   def index
-    @doctors = Doctor.paginate(page: params[:page], :per_page => 10)
+    @doctors = Doctor.paginate(page: params[:page], :per_page => 9)
   end
 
   def sort_by_city
