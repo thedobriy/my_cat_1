@@ -4,6 +4,8 @@ class DoctorsController < ApplicationController
     only: [:index, :sort_by_both, :sort_by_speciality]
   before_action :get_all_cities,
     only: [:index, :sort_by_both, :sort_by_city]
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "All doctors", :doctors_path
 
   def index
     @doctors = Doctor.paginate(page: params[:page], :per_page => 10)
@@ -13,6 +15,8 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.where('city_id = ?', params[:city_id]).
       paginate(page: params[:page], :per_page =>10)
     get_specs
+    @city = City.find(params[:city_id])
+    add_breadcrumb "City", doctors_city_sort_url(params[:city_id])
     render 'index'
   end
 
