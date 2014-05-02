@@ -1,0 +1,7 @@
+<%if object.comments.any? %>
+  <div class="comments">
+    <% object.comments.each do |comment| %>
+      Comment: <%= comment.body %>
+    <% end %>
+  </div>
+<% end %>

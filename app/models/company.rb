@@ -1,5 +1,7 @@
 class Company < ActiveRecord::Base
   has_many :doctors
+  has_many :comments, as: :commentable
+
   belongs_to :city, counter_cache: true
   belongs_to :main_doctor, :class_name => 'Doctor'
   validates :name, presence: true, length: { maximum: 100 }

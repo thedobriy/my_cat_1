@@ -51,6 +51,7 @@ class DoctorsController < ApplicationController
   def show
     @doctor = Doctor.find(params[:id])
     @city = City.find(@doctor.city_id)
+    @comments = @doctor.comments
     add_breadcrumb "#{@city.name}", "city/#{@city.id}"
     add_breadcrumb "#{@doctor.name}"
   end
@@ -77,7 +78,8 @@ class DoctorsController < ApplicationController
 
     def doctor_params
       params.require(:doctor).permit(:name, :desc, :company_id, :city_id, 
-                                     :speciality_id, :contacts)
+                                    :speciality_id, :contacts,
+                                    :commentable_id, :commentable_type)
     end
 
     def correct_user
