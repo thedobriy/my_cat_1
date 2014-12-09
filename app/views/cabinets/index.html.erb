@@ -1,0 +1,20 @@
+<% provide(:title, 'Частные кабинеты') %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render "leftside" %>
+      </div>
+  <div class="col-md-9">
+    <h1>Частные кабинеты</h1>
+    <div class="add-new-item">
+      <span class="glyphicon glyphicon-plus"></span> 
+      <%= link_to 'Новый кабинет', new_cabinet_path %>
+    </div>
+    <ol class="breadcrumb"><%= render_breadcrumbs %></ol>
+    <%= will_paginate @cabinets, renderer: BootstrapPagination::Rails %>
+    <ul class="cabinets">
+    <%= render @cabinets %>
+    </ul>
+    <%= will_paginate @cabinets, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+<% provide(:title, @cabinet.name) %>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= render "leftside" %>
+      </div>
+      <div class="col-md-9">
+        <ol class="breadcrumb"><%= render_breadcrumbs %></ol>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @cabinet.name %></h3>
+      </div>
+    <div class="panel-body">
+      <%= @cabinet.desc %>
+      <% if @cabinet.company %>
+        <p>Company: <%= link_to @cabinet.company.name, @cabinet.company %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+</div>
+

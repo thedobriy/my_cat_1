@@ -1,0 +1,6 @@
+<li>
+  <%= link_to cabinet.name, cabinet %>
+  | <%= link_to "edit", edit_cabinet_path(cabinet) %>
+| <%= link_to "delete", cabinet, method: :delete, 
+                                data: { confirm: "Вы уверены?" } %>
+</li>

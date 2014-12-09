@@ -1,0 +1,15 @@
+      <%= render 'shared/error_messages', object: @cabinet %>
+      <%= f.label 'Название' %>
+      <%= f.text_field :name %>
+
+      <%= f.label :desc %>
+      <%= f.text_field :desc %>
+
+      <%= f.label :adress  %>
+      <%= f.text_field :adress %>
+
+      <%= f.label "City:"  %>
+      <%= collection_select(:cabinet, :city_id, City.all, :id, :name) %>
+
+      <%= f.label "Подшефное учреждение:"  %>
+      <%= collection_select(:cabinet, :company_id, Company.all, :id, :name) %>
