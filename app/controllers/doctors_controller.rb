@@ -51,7 +51,7 @@ class DoctorsController < ApplicationController
   def show
     @doctor = Doctor.find(params[:id])
     @city = City.find(@doctor.city_id)
-    @comments = @doctor.comments
+    @commentable = @doctor
     add_breadcrumb "#{@city.name}", "city/#{@city.id}"
     add_breadcrumb "#{@doctor.name}"
   end

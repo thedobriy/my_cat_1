@@ -1,7 +1,9 @@
 MyCat1::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :doctors
+  resources :doctors do
+    resources :comments
+  end
   resources :companies
   resources :cabinets
   
