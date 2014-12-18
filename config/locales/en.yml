@@ -13,11 +13,14 @@
 # To use a different locale, set it with `I18n.locale`:
 #
 #     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%d %B %Y"
   hello: "Hello world"
+  homepage: "Home page"
+  hospitals: "Hospitals"
+  doctors: "Doctors"

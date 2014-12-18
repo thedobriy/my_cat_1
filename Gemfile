@@ -25,6 +25,7 @@ gem 'will_paginate-bootstrap'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'thread_safe', '0.3.1'
 gem 'breadcrumbs_on_rails'
+gem 'i18n'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

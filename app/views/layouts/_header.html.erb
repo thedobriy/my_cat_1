@@ -5,16 +5,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Главная", root_path %></li>
+        <li><%= link_to t("homepage"), root_path %></li>
         <li class="dropdown">
           <%= link_to companies_path, class: "dropdown-toggle",
             data: { toggle: "dropdown" } do %>
-            Больницы <b class="caret"></b>
+            <%= t('hospitals') %><b class="caret"></b>
           <% end %>
           <ul class="dropdown-menu">
-            <li><%= link_to "Все больницы", companies_path %></li>
-            <li><%= link_to "Кабинеты", cabinets_path %></li>
-            <li><%= link_to "Добавить больницу", new_company_path %></li>
+            <li><%= link_to t("hospitals"), companies_path %></li>
+            <li><%= link_to t("cabinets"), cabinets_path %></li>
+            <li><%= link_to t("add_hospital"), new_company_path %></li>
           </ul>
         </li>
         <li class="dropdown">
