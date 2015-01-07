@@ -1,0 +1,11 @@
+<% provide(:title, 'Добавление врача') %>
+<h1>Add Doctors</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@doctor) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Добавить врача", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

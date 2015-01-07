@@ -1,3 +1,4 @@
+<div class="container">
 <div class="center hero-unit">
   <h1>ВРАЧИ УКРАИНЫ</h1>
 
@@ -8,5 +9,28 @@
 
   <%= link_to "Зарегистрироваться!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4><%= link_to t("hospitals"), companies_path %></h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+          <h4><%= link_to t("cabinets"), cabinets_path %></h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4><%= link_to "Все врачи", doctors_path %></h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4><%= link_to "Пользователи", users_path %></h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4><%= link_to "Admin", admin_path %></h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+</div>

@@ -149,9 +149,12 @@ ru:
       month: Месяц
       second: Секунд
       year: Год
+  logged_in: Успешно залогинились
   errors:
     format: ! '%{attribute} %{message}'
     messages:
+      invalid_admin: У тебя нет прав сюда ломиться
+      invalid_email_pass: Неправильный e-mail или пароль
       accepted: нужно подтвердить
       blank: не может быть пустым
       present: нужно оставить пустым

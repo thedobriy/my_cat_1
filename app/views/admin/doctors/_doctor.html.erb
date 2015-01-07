@@ -1,0 +1,6 @@
+<li>
+  <%= link_to doctor.name, doctor %>
+  | <%= link_to "edit", edit_admin_doctor_path(doctor) %>
+| <%= link_to "delete", doctor, method: :delete,
+                                data: { confirm: "Вы уверены?" } %>
+</li>

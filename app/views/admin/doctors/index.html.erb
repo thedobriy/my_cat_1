@@ -6,8 +6,8 @@
   <div class="col-md-9">
     <h1>Врачи Украины</h1>
     <div class="add-new-item">
-      <span class="glyphicon glyphicon-plus"></span>
-      <!--      <%= link_to 'Добавить врача', new_doctor_path %> -->
+      <span class="glyphicon glyphicon-plus"></span> 
+      <%= link_to 'Добавить врача', new_doctor_path %>
     </div>
     <ol class="breadcrumb"><%= render_breadcrumbs %></ol>
     <%= will_paginate @doctors, renderer: BootstrapPagination::Rails %>

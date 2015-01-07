@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   has_many :doctors
+  has_many :company_types
   has_many :comments, as: :commentable
 
   belongs_to :city, counter_cache: true

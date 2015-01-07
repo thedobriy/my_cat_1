@@ -1,21 +1,26 @@
 MyCat1::Application.routes.draw do
+#  get "dashboard/index"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :doctors do
+  resources :doctors, except: [:destroy, :edit, :update] do
     resources :comments
   end
   resources :companies
   resources :cabinets
-  
-  get '/companies/city/:city_id', 
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+    resources :doctors
+    resources :companies
+  end
+  get '/companies/city/:city_id',
     to: 'companies#sort_by_city', as: 'companies_city_sort'
-  get '/doctors/city/:city_id', 
+  get '/doctors/city/:city_id',
     to: 'doctors#sort_by_city', as: 'doctors_city_sort'
-  get '/cabinets/city/:city_id', 
+  get '/cabinets/city/:city_id',
     to: 'cabinets#sort_by_city', as: 'cabinets_city_sort'
-  get '/doctors/speciality/:speciality_id', 
+  get '/doctors/speciality/:speciality_id',
     to: 'doctors#sort_by_speciality', as: 'doctors_speciality_sort'
-  get '/doctors/city/:city_id/speciality/:speciality_id', 
+  get '/doctors/city/:city_id/speciality/:speciality_id',
     to: 'doctors#sort_by_both', as: 'doctors_both_sort'
   # resources :companies do
   #   get :sort_by_city, on: :collection
